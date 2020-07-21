@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Sign Up Page</title>
+    <style>
+    section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gen {
+    	display: flex;
+    	justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+<section>
+		<div class="container">
+			<div class="w-50 m-auto">
+				<div class="card card-block">
+				<div class="card-body">
+					<h1 class="text-center text-capitalize">Sign Up</h1>
+					<form class="mt-5" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+					<div class="form-group">
+						<label for="agent_id">Agent Name</label>
+						<input type="text" id="name" name="name" class="form-control" placeholder="Name" autocomplete="off">
+					</div>
+					<div class="form-group">
+						<label for="agent_id">Agent ID</label>
+						<input type="text" id="agent_id" name="agent_id" class="form-control" placeholder="Agent ID" autocomplete="off">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" id="password" name="password" class="form-control" placeholder="Password">
+					</div>
+					<div class="form-group">
+						<label for="agent_key">Agent Key</label>
+						<div class="gen">
+							<button class="btn btn-success col-3" type="button" onclick="gen_key()">Generate Key</button>
+							<input type="text" id="agent_key" name="agent_key" class="form-control col-7" readonly>
+						</div>
+					</div>
+					<input class="btn btn-primary" type="submit" value="Create Account"></button>
+					</form>
+				</div>
+				</div>
+			</div>
+		</div>
+</section>
+<script>
+	function gen_key() {
+		var a = document.getElementById('agent_key');
+		var x = Math.floor((Math.random() * 10000) + 999);
+		a.value = x;
+	}
+</script>
+</body>
+</html>
